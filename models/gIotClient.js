@@ -10,7 +10,7 @@ var mytopic = 'client/200000107/200000107-GIOT-MAKER';
 
 var options = {
 	port:settings.gIotPort,
-    host: settings.host,
+    host: settings.gIotHost,
     clientId:settings.client_Id,
     username:settings.name,
     password:settings.pw,
