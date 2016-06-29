@@ -3,10 +3,10 @@ var settings = require('../settings');
 
 var hostname = '52.193.146.103';
 var portNumber = 80;
-var client_Id = '200000017-generic-service';
-var name = '200000017';
-var pw = '44554652';
-var mytopic = 'client/200000017/200000017-GIOT-MAKER';
+var client_Id = '200000107-generic-service';
+var name = '200000107';
+var pw = '09255143';
+var mytopic = 'client/200000107/200000107-GIOT-MAKER';
 
 var options = {
 	port:settings.gIotPort,
@@ -24,4 +24,4 @@ var options = {
 
 var GIotClient = mqtt.connect(options);
 
-module.exports = GIotClient
+module.exports = GIotClient;
