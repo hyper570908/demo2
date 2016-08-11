@@ -7,8 +7,8 @@ module.exports = {
   mytopic:'mqtt',
   gIotHost:'52.193.146.103',
   gIotPort: 80,
-  client_Id: '200000107-generic-service',
-  name: '200000107',
-  pw: '09255143',
-  gIoTopic:'client/200000107/200000107-GIOT-MAKER'
+  client_Id: '200000166-generic-service',
+  name: '200000166',
+  pw: '80698426',
+  gIoTopic:'client/200000166/200000166-GIOT-MAKER'
 };

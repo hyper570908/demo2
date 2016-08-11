@@ -3,10 +3,10 @@ var settings = require('../settings');
 
 var hostname = '52.193.146.103';
 var portNumber = 80;
-var client_Id = '200000107-generic-service';
-var name = '200000107';
-var pw = '09255143';
-var mytopic = 'client/200000107/200000107-GIOT-MAKER';
+var client_Id = '200000166-generic-service';
+var name = '200000166';
+var pw = '80698426';
+var mytopic = 'client/200000166/20000066-GIOT-MAKER';
 
 var options = {
 	port:settings.gIotPort,
