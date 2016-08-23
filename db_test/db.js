@@ -1,5 +1,6 @@
 var mongoose = require( 'mongoose' );
 
+//mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/demo');
 
 var userSchema = new mongoose.Schema({
@@ -20,26 +21,28 @@ console.log(userEntity.name);
 userEntity.save(function(error){
 	if(error){
 		console.log('save fail!');
-	}	
+	}else{
 		console.log('save success!');
+		UserModel.find(function(err,users){
+		  //查詢到的所有user
+		  if(err){
+			  console.log("查詢到所有user err!\n")
+		  }
+		  console.log("查詢到所有user");
+		  console.log(users+"\n");
+		});
+
+		UserModel.find({ name: mUser }, function(err,users){
+		  //查詢到的所有user
+		  if(err){
+			  console.log("查詢到user "+mUser+" err!")
+		  }
+		  console.log("查詢到user "+mUser+" : "+users);
+		});
+	}		
 });
 
-UserModel.find(function(err,users){
-      //查询到的所有person
-	  if(err){
-		  console.log("查询到所有user err!\n")
-	  }
-	  console.log("查询到所有user");
-	  console.log(users+"\n");
-    });
 
-UserModel.find({ name: mUser }, function(err,users){
-      //查询到的所有person
-	  if(err){
-		  console.log("查詢到user "+mUser+" err!")
-	  }
-	  console.log("查詢到user "+mUser+" : "+users);
-    });
 	
 	
 	

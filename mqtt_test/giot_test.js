@@ -2,18 +2,18 @@ var mqtt = require('mqtt');
 
 var hostname = '52.193.146.103';
 var portNumber = 80;
-var client_Id = '200000107-generic-service';
-var name = '200000107';
-var pw = '09255143';
-var mytopic = 'client/200000107/200000107-GIOT-MAKER';
+var client_Id = '200000108-generic-service';
+var name = '200000108';
+var pw = '63738805';
+var mytopic = 'client/200000108/200000108-GIOT-MAKER';
 
 var options = {
 	port:portNumber,
-    host: hostname,
-    clientId:client_Id,
-    username:name,
-    password:pw,
-    keepalive: 60,
+  host: hostname,
+  clientId:client_Id,
+  username:name,
+  password:pw,
+  keepalive: 60,
 	reconnectPeriod: 1000,
 	protocolId: 'MQIsdp',
 	protocolVersion: 3,
@@ -27,16 +27,18 @@ var client = mqtt.connect(options);
 
 client.on('connect', function()  {
 	console.log('Connect to mqtt topic:'+mytopic);
-  	client.subscribe(mytopic);
+  client.subscribe(mytopic);
 });
 
 client.on('message', function(topic, message) {
-	console.log('topic:'+topic.toString());
+  console.log('----------------------------------------------------------------');
+	console.log(new Date()+'\ntopic:'+topic.toString());
   	if(topic == mytopic) {
-    		console.log('message:'+message.toString());
-    		var obj = JSON.parse(message);
-         	console.log('macAddr:'+obj.macAddr+', data:'+obj.data + '>> receive time : '+obj.recv);
-         
-         }
+      console.log('message ---------------------------------------');
+  		console.log('message:'+message.toString());
+  		var obj = JSON.parse(message);
+      console.log('JSON object ---------------------------------------');
+      console.log('macAddr:'+obj.macAddr+', data:'+obj.data + '>> receive time : '+obj.recv);
+    }
 });
 
