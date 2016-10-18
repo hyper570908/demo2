@@ -13,11 +13,11 @@ var options = {
   clientId:client_Id,
   username:name,
   password:pw,
-  keepalive: 60,
+  keepalive: 0,
 	reconnectPeriod: 1000,
 	protocolId: 'MQIsdp',
 	protocolVersion: 3,
-	//clean: true,
+	clean: true,
 	encoding: 'utf8'
 };
 
@@ -26,8 +26,13 @@ var client = mqtt.connect(options);
 
 
 client.on('connect', function()  {
-	console.log('Connect to mqtt topic:'+mytopic);
-  client.subscribe(mytopic);
+	console.log('time:'+new Date()+'-> mqtt topic:'+mytopic);
+  client.subscribe(mytopic,{qos:2},function(err,granted){
+    if(err){
+      console.log('subscribe fail: '+err);
+    }
+    console.log('subscribe success: '+JSON.stringify(granted));
+  });
 });
 
 client.on('message', function(topic, message) {
